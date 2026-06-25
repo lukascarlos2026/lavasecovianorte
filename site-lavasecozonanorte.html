@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lava Seco Zona Norte | Higienização de Estofados em Ribeirão Preto</title>
+    <meta name="description" content="Especialistas em higienização e impermeabilização de estofados em geral, Ribeirão Preto e Região. Atendimento em domicílio.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9',
+                            400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490',
+                            800: '#155E75', 900: '#164E63',
+                        },
+                        teal: {
+                            50: '#F0FDFA', 100: '#CCFBF1', 200: '#99F6E4', 300: '#5EEAD4',
+                            400: '#2DD4BF', 500: '#14B8A6', 600: '#0D9488', 700: '#0F766E',
+                            800: '#115E59', 900: '#134E4A',
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #0F172A; overflow-x: hidden; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #0891B2; border-radius: 3px; }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse-soft { 0%, 100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4); } 50% { box-shadow: 0 0 0 12px rgba(6, 182, 212, 0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        @keyframes instagram-glow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(225, 48, 108, 0.3), 0 0 0 0 rgba(225, 48, 108, 0.2); }
+            50% { box-shadow: 0 6px 30px rgba(225, 48, 108, 0.5), 0 0 0 10px rgba(225, 48, 108, 0); }
+        }
+
+        .animate-fade-up { animation: fadeUp 0.8s ease-out forwards; }
+        .animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .ba-container { position: relative; overflow: hidden; border-radius: 1rem; cursor: ew-resize; user-select: none; }
+        .ba-before, .ba-after { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .ba-before { position: absolute; top: 0; left: 0; clip-path: inset(0 50% 0 0); z-index: 2; }
+        .ba-after { position: relative; z-index: 1; }
+        .ba-divider { position: absolute; top: 0; left: 50%; width: 3px; height: 100%; background: #FFFFFF; transform: translateX(-50%); z-index: 10; box-shadow: 0 0 8px rgba(0,0,0,0.3); pointer-events: none; }
+        .ba-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: #FFFFFF; border-radius: 50%; z-index: 11; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(0,0,0,0.2); pointer-events: none; }
+        .ba-label { position: absolute; bottom: 12px; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; z-index: 5; pointer-events: none; }
+        .ba-label-before { left: 12px; background: rgba(239,68,68,0.85); color: #fff; }
+        .ba-label-after { right: 12px; background: rgba(16,185,129,0.85); color: #fff; }
+
+        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5); }
+
+        .service-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(8, 145, 178, 0.12); }
+        .service-card:hover .service-icon { background: linear-gradient(135deg, #06B6D4, #0D9488); color: #fff; }
+        .service-icon { transition: all 0.4s ease; }
+
+        .cta-shimmer { background: linear-gradient(110deg, #06B6D4 0%, #22D3EE 25%, #06B6D4 50%, #0D9488 75%, #06B6D4 100%); background-size: 200% 100%; animation: shimmer 3s ease-in-out infinite; }
+
+        .diff-card { transition: all 0.3s ease; }
+        .diff-card:hover { background: #F0FDFA; }
+
+        .nav-scrolled { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(20px); box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
+
+        .hero-pattern { background-image: radial-gradient(circle at 20% 50%, rgba(6,182,212,0.06) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(13,148,136,0.06) 0%, transparent 50%), radial-gradient(circle at 60% 80%, rgba(6,182,212,0.04) 0%, transparent 50%); }
+        .dot-pattern { background-image: radial-gradient(circle, #E2E8F0 1px, transparent 1px); background-size: 24px 24px; }
+
+        .logo-img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+        .logo-img-footer { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+        @media (min-width: 640px) { .logo-img { width: 50px; height: 50px; } }
+
+        .gallery-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; }
+        .gallery-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 50px rgba(8, 145, 178, 0.15); }
+        .gallery-card img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .gallery-card:hover img { transform: scale(1.05); }
+
+        .testimonial-card { transition: all 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(8, 145, 178, 0.1); }
+
+        .footer-service-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94A3B8; line-height: 1.6; }
+        .footer-service-list li .dot { width: 5px; height: 5px; border-radius: 50%; background: #0891B2; flex-shrink: 0; }
+        .footer-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #E2E8F0; margin-bottom: 12px; }
+        .footer-highlight-box { background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 12px; padding: 10px 14px; margin-top: 8px; }
+
+        .instagram-cta-banner {
+            background: linear-gradient(135deg, #833AB4 0%, #E1306C 40%, #F77737 70%, #FCAF45 100%);
+            background-size: 200% 200%;
+            animation: instagram-gradient 4s ease infinite;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .instagram-cta-banner:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(225, 48, 108, 0.3);
+        }
+        @keyframes instagram-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <a href="#" class="flex items-center gap-2.5 sm:gap-3 group">
+                    <img src="https://z-cdn-media.chatglm.cn/files/19ddc38a-4903-427b-8477-568b6847ac3d.jpg?auth_key=1882138476-ad7b042690554b489e912a8b43a28fee-0-bf46afa35377f6953ae80ed23303d656" alt="Lava Seco Zona Norte" class="logo-img ring-2 ring-white/50 shadow-md group-hover:ring-brand-200 transition-all">
+                    <div class="leading-tight">
+                        <span class="block text-sm sm:text-[15px] font-extrabold text-slate-900 tracking-tight">Lava Seco</span>
+                        <span class="block text-[10px] sm:text-xs font-bold text-brand-600 tracking-widest uppercase">Zona Norte</span>
+                    </div>
+                </a>
+                <a href="tel:+5516982627162" class="hidden sm:flex items-center gap-2 text-slate-700 hover:text-brand-600 transition-colors group">
+                    <div class="w-9 h-9 rounded-full bg-brand-50 flex items-center justify-center group-hover:bg-brand-100 transition-colors">
+                        <span class="iconify text-brand-600 text-lg" data-icon="mdi:phone"></span>
+                    </div>
+                    <div class="leading-tight">
+                        <span class="block text-xs text-slate-400 font-medium">Ligue agora</span>
+                        <span class="block text-sm font-bold text-slate-800">(16) 98262-7162</span>
+                    </div>
+                </a>
+                <a href="https://wa.me/5516982627162?text=Olá! Gostaria de solicitar um orçamento." target="_blank" class="sm:hidden flex items-center gap-2 bg-brand-600 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-brand-700 transition-colors">
+                    <span class="iconify text-base" data-icon="mdi:whatsapp"></span> Orçamento
+                </a>
+                <a href="https://wa.me/5516982627162?text=Olá! Gostaria de solicitar um orçamento." target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-brand-600 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-brand-700 transition-all hover:shadow-lg hover:shadow-brand-600/25">
+                    <span class="iconify text-lg" data-icon="mdi:whatsapp"></span> Solicitar Orçamento Grátis
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center hero-pattern pt-20 pb-12 sm:pt-24 sm:pb-20">
+        <div class="absolute top-32 right-0 w-72 h-72 bg-brand-100/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-20 left-0 w-96 h-96 bg-teal-100/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 rounded-full px-4 py-1.5 mb-6 animate-fade-up" style="opacity:0;">
+                        <span class="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></span>
+                        <span class="text-xs font-semibold text-brand-700 tracking-wide">Atendendo Ribeirão Preto e Região</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-extrabold text-slate-900 leading-[1.1] tracking-tight mb-5 animate-fade-up delay-100" style="opacity:0;">
+                        Seus estofados com aparência de
+                        <span class="bg-gradient-to-r from-brand-600 to-teal-600 bg-clip-text text-transparent"> novos</span>
+                        e livres de bactérias
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-500 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 animate-fade-up delay-200" style="opacity:0;">
+                        Especialistas em higienização e impermeabilização de Estofados em Geral, Ribeirão Preto e Região.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start animate-fade-up delay-300" style="opacity:0;">
+                        <a href="https://wa.me/5516982627162?text=Olá! Gostaria de solicitar um orçamento grátis." target="_blank" class="cta-shimmer inline-flex items-center justify-center gap-2.5 text-white px-7 py-4 rounded-2xl text-base font-bold hover:opacity-90 transition-opacity shadow-lg shadow-brand-600/25 animate-pulse-soft">
+                            <span class="iconify text-xl" data-icon="mdi:whatsapp"></span> Solicitar Orçamento Grátis
+                        </a>
+                        <a href="tel:+5516982627162" class="inline-flex items-center justify-center gap-2.5 bg-white border-2 border-slate-200 text-slate-700 px-7 py-4 rounded-2xl text-base font-bold hover:border-brand-300 hover:text-brand-600 transition-all">
+                            <span class="iconify text-xl" data-icon="mdi:phone-outline"></span> (16) 98262-7162
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-4 mt-8 justify-center lg:justify-start animate-fade-up delay-400" style="opacity:0;">
+                        <div class="flex items-center gap-1.5">
+                            <span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span>
+                            <span class="text-xs text-slate-500 font-medium ml-1">+500 clientes</span>
+                        </div>
+                        <div class="w-px h-4 bg-slate-200 hidden sm:block"></div>
+                        <div class="flex items-center gap-1.5 text-slate-500">
+                            <span class="iconify text-teal-500 text-lg" data-icon="mdi:shield-check"></span>
+                            <span class="text-xs font-medium">Produtos Biodegradáveis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative animate-fade-up delay-300" style="opacity:0;">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-brand-900/10">
+                        <img src="https://z-cdn-media.chatglm.cn/files/fbf63c76-2aa3-4f48-aaca-15d421e12c1d.jpeg?auth_key=1882240461-f881ad11f2bd46f1932ce4fb401bc095-0-12ee67ff23fecf29c6df830c7a220be8" alt="Profissional da Lava Seco Zona Norte realizando higienização de sofá" class="w-full h-[300px] sm:h-[400px] lg:h-[480px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-900/30 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg animate-float">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-teal-600 text-2xl" data-icon="mdi:check-decagram"></span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-900">Resultado Garantido</p>
+                                    <p class="text-xs text-slate-500">Eliminação de 99,9% das bactérias</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-24 h-24 dot-pattern opacity-30 hidden lg:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE & AFTER -->
+    <section class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <span class="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 rounded-full px-4 py-1.5 mb-4">
+                    <span class="iconify text-brand-600 text-sm" data-icon="mdi:compare-horizontal"></span>
+                    <span class="text-xs font-semibold text-brand-700 tracking-wide uppercase">Resultados Reais</span>
+                </span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                    Veja a transformação com seus <span class="bg-gradient-to-r from-brand-600 to-teal-600 bg-clip-text text-transparent">próprios olhos</span>
+                </h2>
+                <p class="text-base text-slate-500 max-w-2xl mx-auto">Arraste para comparar o antes e depois. Fotos reais de serviços realizados em Ribeirão Preto.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+                <div class="reveal" style="transition-delay: 0.1s;">
+                    <div class="ba-container aspect-[4/3]" data-ba>
+                        <img src="https://z-cdn-media.chatglm.cn/files/9acf9ee7-0766-4328-9f2c-7a7631638641.jpeg?auth_key=1882234037-c5695ea1c77247408e588f6bbaba990d-0-0f143bf09582e32e476997498f932c1b" alt="Sofá depois" class="ba-after">
+                        <img src="https://z-cdn-media.chatglm.cn/files/acddab3a-4d1e-46ef-a6e6-4729d1cc701a.jpeg?auth_key=1882234037-edcc88a331314daa8fcde429b0acc6b1-0-756d6242ad7bbab2358faa9051c222fa" alt="Sofá antes" class="ba-before">
+                        <div class="ba-divider"></div>
+                        <div class="ba-handle"><span class="iconify text-slate-600 text-xl" data-icon="mdi:arrow-left-right"></span></div>
+                        <span class="ba-label ba-label-before">Antes</span>
+                        <span class="ba-label ba-label-after">Depois</span>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <h3 class="text-lg font-bold text-slate-900">Conforto e limpeza para sua família</h3>
+                        <p class="text-sm text-slate-500 mt-1">Sofá com aparência de novo, sem manchas e sem cheiro de umidade</p>
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 0.2s;">
+                    <div class="ba-container aspect-[4/3]" data-ba>
+                        <img src="https://z-cdn-media.chatglm.cn/files/241d7870-5c34-44c0-b747-9224bd138229.jpeg?auth_key=1882234037-32ef18ae64c84e3fa4192efde0e3aee6-0-4b1ca7225c155ed5f1c980f80eb8a15a" alt="Colchão depois" class="ba-after">
+                        <img src="https://z-cdn-media.chatglm.cn/files/bae1e743-6aba-459b-99df-d5fa8ff1469f.jpeg?auth_key=1882234037-4c280929778446b79546df80847d2f24-0-bfe690dab16f4c460a301e15a6d999f8" alt="Colchão antes" class="ba-before">
+                        <div class="ba-divider"></div>
+                        <div class="ba-handle"><span class="iconify text-slate-600 text-xl" data-icon="mdi:arrow-left-right"></span></div>
+                        <span class="ba-label ba-label-before">Antes</span>
+                        <span class="ba-label ba-label-after">Depois</span>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <h3 class="text-lg font-bold text-slate-900">Recupere a saúde do seu sono</h3>
+                        <p class="text-sm text-slate-500 mt-1">Colchão livre de ácaros, bactérias, manchas e odores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <span class="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 rounded-full px-4 py-1.5 mb-4">
+                    <span class="iconify text-brand-600 text-sm" data-icon="mdi:format-list-checks"></span>
+                    <span class="text-xs font-semibold text-brand-700 tracking-wide uppercase">Nossos Serviços</span>
+                </span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                    Soluções completas para seus <span class="bg-gradient-to-r from-brand-600 to-teal-600 bg-clip-text text-transparent">estofados</span>
+                </h2>
+                <p class="text-base text-slate-500 max-w-2xl mx-auto">Cada serviço é realizado com tecnologia de extração profunda e produtos que respeitam sua saúde</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+                <div class="service-card bg-white border border-slate-100 rounded-2xl p-6 reveal" style="transition-delay:0.1s">
+                    <div class="service-icon w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center mb-5"><span class="iconify text-brand-600 text-2xl" data-icon="mdi:sofa-outline"></span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Higienização de Sofás e Estofados</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Remoção profunda de sujeira, manchas e odores, devolvendo a maciez e aspecto de novo ao seu estofado.</p>
+                    <a href="https://wa.me/5516982627162?text=Olá! Gostaria de um orçamento para higienização de sofá." target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors group">Solicitar orçamento <span class="iconify text-base group-hover:translate-x-1 transition-transform" data-icon="mdi:arrow-right"></span></a>
+                </div>
+                <div class="service-card bg-white border border-slate-100 rounded-2xl p-6 reveal" style="transition-delay:0.2s">
+                    <div class="service-icon w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center mb-5"><span class="iconify text-teal-600 text-2xl" data-icon="mdi:bed-outline"></span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Limpeza Profunda de Colchões</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Eliminação de ácaros, bactérias, manchas e fungos. Ideal para alérgicos e quem busca um sono saudável.</p>
+                    <a href="https://wa.me/5516982627162?text=Olá! Gostaria de um orçamento para higienização de colchão." target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 transition-colors group">Solicitar orçamento <span class="iconify text-base group-hover:translate-x-1 transition-transform" data-icon="mdi:arrow-right"></span></a>
+                </div>
+                <div class="service-card bg-white border border-slate-100 rounded-2xl p-6 reveal" style="transition-delay:0.3s">
+                    <div class="service-icon w-14 h-14 rounded-2xl bg-cyan-50 flex items-center justify-center mb-5"><span class="iconify text-cyan-600 text-2xl" data-icon="mdi:rug"></span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Higienização de Tapetes e Carpetes</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Extração de poeira, ácaros e manchas profundas. Seus tapetes e carpetes com cores revigoradas.</p>
+                    <a href="https://wa.me/5516982627162?text=Olá! Gostaria de um orçamento para higienização de tapete/carpete." target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-600 hover:text-cyan-700 transition-colors group">Solicitar orçamento <span class="iconify text-base group-hover:translate-x-1 transition-transform" data-icon="mdi:arrow-right"></span></a>
+                </div>
+                <div class="service-card bg-white border border-slate-100 rounded-2xl p-6 reveal" style="transition-delay:0.4s">
+                    <div class="service-icon w-14 h-14 rounded-2xl bg-sky-50 flex items-center justify-center mb-5"><span class="iconify text-sky-600 text-2xl" data-icon="mdi:shield-check-outline"></span></div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Impermeabilização de Tecidos</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Proteção contra líquidos e manchas. Crie uma barreira invisível que preserva seus estofados por meses.</p>
+                    <a href="https://wa.me/5516982627162?text=Olá! Gostaria de um orçamento para impermeabilização." target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-600 hover:text-sky-700 transition-colors group">Solicitar orçamento <span class="iconify text-base group-hover:translate-x-1 transition-transform" data-icon="mdi:arrow-right"></span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY + TESTIMONIALS -->
+    <section class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-14 reveal">
+                <span class="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 rounded-full px-4 py-1.5 mb-4">
+                    <span class="iconify text-brand-600 text-sm" data-icon="mdi:image-multiple-outline"></span>
+                    <span class="text-xs font-semibold text-brand-700 tracking-wide uppercase">Galeria de Trabalhos</span>
+                </span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                    Serviços <span class="bg-gradient-to-r from-brand-600 to-teal-600 bg-clip-text text-transparent">realizados!</span>
+                </h2>
+                <p class="text-base text-slate-500 max-w-2xl mx-auto">Cada imagem é um cliente satisfeito. Veja por que dizem: <strong class="text-slate-700">"Eu fiz, e recomendo!"</strong></p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 mb-10 sm:mb-14">
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.02s"><img src="https://z-cdn-media.chatglm.cn/files/1eec390a-f57d-4814-b7d2-e42909d790af.jpeg?auth_key=1882234958-b8696fbdac01424c966870ee542727d2-0-cfb4986aff44f58fdf97ba7a03cd926c" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.04s"><img src="https://z-cdn-media.chatglm.cn/files/f4df30c7-d1f2-4732-95eb-7e2e7e8d9566.jpeg?auth_key=1882234958-1e44ee6f07354776a122e08ebac710cb-0-d68d945c4dd89b7dcb78968c439bc736" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.06s"><img src="https://z-cdn-media.chatglm.cn/files/ffa75def-567e-4721-9fd6-25be8b75e134.jpeg?auth_key=1882234958-8e9201e63728460ebbb219198cbcb628-0-86d3468de49a2a4448a640f63ea161d4" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.08s"><img src="https://z-cdn-media.chatglm.cn/files/e42521c4-4f5e-4a65-aa92-2f0ef88ad7a9.jpeg?auth_key=1882234958-f09c4e8fca914401867437dc4b168c8e-0-61195f0f3286a0fbc91685f3b2bcd115" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.10s"><img src="https://z-cdn-media.chatglm.cn/files/0cc91f3d-a857-481b-8e4e-50e8b5929298.jpeg?auth_key=1882234958-4da0cf02d51d4a47878d9c01117a6f52-0-3923dfb954bb6f1b3021a4df0615798e" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.12s"><img src="https://z-cdn-media.chatglm.cn/files/23513bb1-2f3a-4582-9831-077ff5138fe1.jpeg?auth_key=1882234958-9633274fbaa64202a13786d9a8a6d06a-0-f11387943f5961d913f327fe9c96ee91" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.14s"><img src="https://z-cdn-media.chatglm.cn/files/6b24b2be-a3b7-4b85-9105-044e28c9d3f3.jpeg?auth_key=1882234958-1d4eb9a402214f4880efb5d857b7136d-0-9e751587f40c5715049bda1a96892108" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.16s"><img src="https://z-cdn-media.chatglm.cn/files/fe3a990f-66a7-4e18-8cc6-39d85716577a.jpeg?auth_key=1882234958-062fc3c82a6a46b296091942dc89f516-0-fcfe735c91794f70e363624fa24c1fbd" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.18s"><img src="https://z-cdn-media.chatglm.cn/files/dc99f38e-bdc4-4046-b5b2-cdb25045c613.jpeg?auth_key=1882234958-69eb74a736dc44c9914a011255d567d5-0-5e8d611ac9682977501782a443773246" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.20s"><img src="https://z-cdn-media.chatglm.cn/files/d4ff840c-6815-4c20-907b-9b47e6bf795a.jpeg?auth_key=1882234958-b3d4b04b5725417a992beb69c336cd8c-0-a18fe6bd324b7edb88e5698aa7075fdc" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.22s"><img src="https://z-cdn-media.chatglm.cn/files/ca97ccff-8740-4784-8f12-a8a4f696f5d1.jpeg?auth_key=1882235484-de7b3e6342e8495dbb43405433e45f25-0-cf71bb8512991759368d40bb74679993" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.24s"><img src="https://z-cdn-media.chatglm.cn/files/b46a6828-fd7a-418c-abc9-03801ddc872c.jpeg?auth_key=1882235484-c858ff8502ea4893a27a0279961857a9-0-ab35600898de466dfeb5248f0687aa1e" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.26s"><img src="https://z-cdn-media.chatglm.cn/files/22102c1d-671d-452c-a944-b2c67d8e61c2.jpeg?auth_key=1882235484-42bff1bb247c4f768fd4d1dd838c62db-0-df5a12e508c925df912c8d61f488183e" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.28s"><img src="https://z-cdn-media.chatglm.cn/files/b49764fe-6a01-400d-9f36-0b689b002064.jpeg?auth_key=1882235484-9924de696cc44d74a383ef0f9064de9b-0-700abcbba42bde115a7e4175bae3cd44" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.30s"><img src="https://z-cdn-media.chatglm.cn/files/b65a3931-5fa4-4865-9232-bd67db3ebfda.jpeg?auth_key=1882235484-8aabdf65f5e548eb83d7472c17bf2046-0-1b182d3ee9a27ccb2c98146ee1549287" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.32s"><img src="https://z-cdn-media.chatglm.cn/files/94fba267-2476-43b6-9c0b-739339db79d1.jpeg?auth_key=1882235484-41ad849993594a9284bd71c21b1ec83b-0-5cb8122082aea50599825762943089da" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.34s"><img src="https://z-cdn-media.chatglm.cn/files/c7c9ea10-6f92-45ac-87e3-aa7c2da9575d.jpeg?auth_key=1882235484-7b81db13e1104a5eb2b421adc27c5015-0-de1e54549322662c1e042b57e35cc07a" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.36s"><img src="https://z-cdn-media.chatglm.cn/files/6188f589-b7df-4c5d-bf42-3e89a0fdff14.jpeg?auth_key=1882235484-3378e3967c084b0485572a07e12d67b3-0-7fc1ada556ae1ff06c3566a32c3ceced" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.38s"><img src="https://z-cdn-media.chatglm.cn/files/ceac5ddc-99d9-48da-9aa7-11b454b92561.jpeg?auth_key=1882235484-3330b831b62547409f63929de631f8f9-0-dd249657c197b6ecb01ed3c056cecb48" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+                <div class="gallery-card rounded-2xl shadow-md reveal" style="transition-delay:0.40s"><img src="https://z-cdn-media.chatglm.cn/files/d95576b3-9ed7-4dc1-b1b8-460f742aa3a9.jpeg?auth_key=1882235484-b9ae97cfe6634d46adc8aff0ab5c637a-0-a703d9a9e9413cadb585bf90e16ee8d3" alt="Serviço realizado" class="w-full aspect-[3/4] object-cover rounded-2xl"></div>
+            </div>
+
+            <!-- ★ BANNER INSTAGRAM - Embaixo das fotos ★ -->
+            <div class="reveal mb-14 sm:mb-18" style="transition-delay:0.15s">
+                <a href="https://www.instagram.com/lavasecozonanorte?igsh=MWV5Zzhwbjd1eGJ0dg==" target="_blank" rel="noopener noreferrer" class="instagram-cta-banner flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 rounded-2xl sm:rounded-3xl px-6 py-5 sm:px-10 sm:py-6 text-white group">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-colors group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <p class="text-base sm:text-lg font-extrabold leading-snug">Veja mais serviços, fotos e vídeos em nosso Instagram</p>
+                        <p class="text-xs sm:text-sm font-medium text-white/80 mt-0.5">@lavasecozonanorte</p>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 flex-shrink-0 group-hover:bg-white/30 transition-colors">
+                        <span class="text-xs sm:text-sm font-bold">Acessar</span>
+                        <span class="iconify text-base group-hover:translate-x-0.5 transition-transform" data-icon="mdi:arrow-right"></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-4 mb-12 sm:mb-14 reveal">
+                <div class="flex-1 h-px bg-slate-200"></div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">O que nossos clientes dizem</span>
+                <div class="flex-1 h-px bg-slate-200"></div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                <div class="testimonial-card bg-white rounded-2xl p-6 border border-slate-100 reveal" style="transition-delay:0.1s">
+                    <div class="flex items-center gap-1 mb-4"><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span></div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-5">"Eu achei que meu sofá estava perdido, tinha manchas que não saíam de jeito nenhum. A Lava Seco Zona Norte conseguiu tirar <strong class="text-slate-800">todas</strong>. Fiquei impressionada!"</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-400 to-teal-500 flex items-center justify-center text-white font-bold text-sm">CM</div><div><p class="text-sm font-bold text-slate-900">Carla M.</p><p class="text-xs text-slate-400">Jardim Paulista — Ribeirão Preto</p></div></div>
+                </div>
+                <div class="testimonial-card bg-white rounded-2xl p-6 border border-slate-100 reveal" style="transition-delay:0.2s">
+                    <div class="flex items-center gap-1 mb-4"><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span></div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-5">"Meu filho tem alergia e desde que higienizamos o colchão e o sofá, <strong class="text-slate-800">as crises diminuíram muito</strong>. Recomendo de olhos fechados!"</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-brand-600 flex items-center justify-center text-white font-bold text-sm">RS</div><div><p class="text-sm font-bold text-slate-900">Roberto S.</p><p class="text-xs text-slate-400">Zona Norte — Ribeirão Preto</p></div></div>
+                </div>
+                <div class="testimonial-card bg-white rounded-2xl p-6 border border-slate-100 reveal" style="transition-delay:0.3s">
+                    <div class="flex items-center gap-1 mb-4"><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-lg" data-icon="mdi:star"></span></div>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-5">"Mandei higienizar 3 sofás do escritório e um tapete grande. Resultado <strong class="text-slate-800">impecável</strong>. Secou rápido e não atrapalhou o trabalho. Já agendei para fazer mensalmente!"</p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-teal-700 flex items-center justify-center text-white font-bold text-sm">FL</div><div><p class="text-sm font-bold text-slate-900">Fernanda L.</p><p class="text-xs text-slate-400">Centro — Ribeirão Preto</p></div></div>
+                </div>
+            </div>
+            <div class="mt-10 sm:mt-12 text-center reveal" style="transition-delay:0.2s">
+                <p class="text-sm text-slate-400 mb-3">Quer ser o próximo cliente satisfeito?</p>
+                <a href="https://wa.me/5516982627162?text=Olá! Vi os depoimentos no site e quero agendar uma higienização." target="_blank" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-full text-sm font-bold transition-all hover:shadow-lg hover:shadow-brand-600/25"><span class="iconify text-lg" data-icon="mdi:whatsapp"></span> Solicitar meu orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFFERENTIALS -->
+    <section class="py-16 sm:py-24 bg-gradient-to-b from-white to-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <span class="inline-flex items-center gap-2 bg-brand-50 border border-brand-200 rounded-full px-4 py-1.5 mb-4"><span class="iconify text-brand-600 text-sm" data-icon="mdi:star-four-points"></span><span class="text-xs font-semibold text-brand-700 tracking-wide uppercase">Por que nos escolher</span></span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">Diferenciais que fazem a <span class="bg-gradient-to-r from-brand-600 to-teal-600 bg-clip-text text-transparent">diferença</span></h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+                <div class="diff-card text-center p-6 rounded-2xl border border-transparent reveal" style="transition-delay:0.1s"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-500 to-teal-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-brand-500/20"><span class="iconify text-white text-3xl" data-icon="mdi:home-map-marker"></span></div><h3 class="text-base font-bold text-slate-900 mb-2">Atendimento em Domicílio</h3><p class="text-sm text-slate-500 leading-relaxed">Levamos todo o equipamento até sua casa ou EMPRESA.</p></div>
+                <div class="diff-card text-center p-6 rounded-2xl border border-transparent reveal" style="transition-delay:0.2s"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-teal-500/20"><span class="iconify text-white text-3xl" data-icon="mdi:leaf"></span></div><h3 class="text-base font-bold text-slate-900 mb-2">Produtos Biodegradáveis</h3><p class="text-sm text-slate-500 leading-relaxed">Fórmulas seguras para crianças, pets e alérgicos.</p></div>
+                <div class="diff-card text-center p-6 rounded-2xl border border-transparent reveal" style="transition-delay:0.3s"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-brand-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-cyan-500/20"><span class="iconify text-white text-3xl" data-icon="mdi:weather-windy"></span></div><h3 class="text-base font-bold text-slate-900 mb-2">Secagem Rápida</h3><p class="text-sm text-slate-500 leading-relaxed">Tecnologia que remove até 95% da umidade.</p></div>
+                <div class="diff-card text-center p-6 rounded-2xl border border-transparent reveal" style="transition-delay:0.4s"><div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-sky-500/20"><span class="iconify text-white text-3xl" data-icon="mdi:pump"></span></div><h3 class="text-base font-bold text-slate-900 mb-2">Extração Profunda</h3><p class="text-sm text-slate-500 leading-relaxed">Equipamento que alcança as camadas mais profundas.</p></div>
+            </div>
+            <div class="mt-12 sm:mt-16 bg-gradient-to-r from-brand-600 to-teal-600 rounded-3xl p-6 sm:p-8 reveal" style="transition-delay:0.2s">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div><p class="text-2xl sm:text-3xl font-extrabold text-white" data-count="500">0+</p><p class="text-xs sm:text-sm text-brand-100 mt-1">Clientes atendidos</p></div>
+                    <div><p class="text-2xl sm:text-3xl font-extrabold text-white" data-count="99.9">0%</p><p class="text-xs sm:text-sm text-brand-100 mt-1">Bactérias eliminadas</p></div>
+                    <div><p class="text-2xl sm:text-3xl font-extrabold text-white" data-count="3">0h</p><p class="text-xs sm:text-sm text-brand-100 mt-1">Tempo médio de secagem</p></div>
+                    <div><p class="text-2xl sm:text-3xl font-extrabold text-white" data-count="100">0%</p><p class="text-xs sm:text-sm text-brand-100 mt-1">Produtos biodegradáveis</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-16 sm:py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <div class="reveal">
+                <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-brand-500 to-teal-600 flex items-center justify-center mx-auto mb-8 shadow-xl shadow-brand-500/25"><span class="iconify text-white text-4xl" data-icon="mdi:whatsapp"></span></div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">Não deixe a sujeira se acumular. Chame agora seu especialista em Ribeirão e Região!</h2>
+                <p class="text-base sm:text-lg text-slate-500 mb-8 max-w-xl mx-auto">Orçamento sem compromisso. Atendimento rápido em Ribeirão Preto e toda a região.</p>
+                <a href="https://wa.me/5516982627162?text=Olá! Vim pelo site e quero falar com um especialista sobre higienização de estofados." target="_blank" class="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20BD5A] text-white px-8 sm:px-12 py-5 sm:py-6 rounded-2xl text-lg sm:text-xl font-extrabold transition-all hover:shadow-xl hover:shadow-green-500/30 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"><span class="iconify text-2xl sm:text-3xl" data-icon="mdi:whatsapp"></span> Falar com Especialista AGORA</a>
+                <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4"><span class="text-sm text-slate-400">ou ligue:</span><a href="tel:+5516982627162" class="inline-flex items-center gap-2 text-lg font-bold text-slate-700 hover:text-brand-600 transition-colors"><span class="iconify text-brand-500" data-icon="mdi:phone"></span> (16) 98262-7162</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="py-12 sm:py-16 grid sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
+                <div class="lg:col-span-4">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="https://z-cdn-media.chatglm.cn/files/19ddc38a-4903-427b-8477-568b6847ac3d.jpg?auth_key=1882138476-ad7b042690554b489e912a8b43a28fee-0-bf46afa35377f6953ae80ed23303d656" alt="Lava Seco Zona Norte" class="logo-img-footer ring-2 ring-slate-700 shadow-lg">
+                        <div class="leading-tight"><span class="block text-sm font-bold text-white">Lava Seco</span><span class="block text-[10px] font-bold text-brand-400 tracking-widest uppercase">Zona Norte</span></div>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-4">Especialistas em higienização e impermeabilização de estofados em Ribeirão Preto e Região.</p>
+                    <div class="flex items-center gap-1.5"><span class="iconify text-yellow-400 text-sm" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-sm" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-sm" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-sm" data-icon="mdi:star"></span><span class="iconify text-yellow-400 text-sm" data-icon="mdi:star"></span><span class="text-xs text-slate-400 ml-1">5.0 no Google</span></div>
+                </div>
+                <div class="lg:col-span-4">
+                    <p class="footer-section-title">Limpeza e Higienização</p>
+                    <ul class="footer-service-list space-y-1">
+                        <li><span class="dot"></span> Sofás</li><li><span class="dot"></span> Colchão</li><li><span class="dot"></span> Cadeiras</li><li><span class="dot"></span> Poltronas</li><li><span class="dot"></span> Toldos e coberturas</li><li><span class="dot"></span> Cortinas</li><li><span class="dot"></span> Persianas</li><li><span class="dot"></span> Edredom</li>
+                    </ul>
+                    <p class="footer-section-title mt-5">Limpeza Automotiva 🚗</p>
+                    <ul class="footer-service-list space-y-1">
+                        <li><span class="dot"></span> Bancos</li><li><span class="dot"></span> Carpetes</li><li><span class="dot"></span> Teto de carro</li>
+                        <li class="text-brand-400 font-medium"><span class="dot" style="background:transparent"></span>e muito mais</li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-4">
+                    <p class="footer-section-title">Tapetes</p>
+                    <div class="footer-highlight-box">
+                        <p class="text-sm font-bold text-white leading-snug">Higienização de Tapetes</p>
+                        <p class="text-xs text-brand-300 font-semibold mt-1">com leva e traz <span class="text-brand-200">GRÁTIS</span></p>
+                    </div>
+                    <p class="footer-section-title mt-6">Contato</p>
+                    <ul class="space-y-3">
+                        <li><a href="tel:+5516982627162" class="flex items-center gap-2.5 text-sm text-slate-400 hover:text-brand-400 transition-colors"><span class="iconify text-brand-500 text-lg" data-icon="mdi:phone"></span> (16) 98262-7162</a></li>
+                        <li><a href="https://wa.me/5516982627162" target="_blank" class="flex items-center gap-2.5 text-sm text-slate-400 hover:text-[#25D366] transition-colors"><span class="iconify text-[#25D366] text-lg" data-icon="mdi:whatsapp"></span> WhatsApp</a></li>
+                        <li>
+                            <a href="https://www.instagram.com/lavasecozonanorte?igsh=MWV5Zzhwbjd1eGJ0dg==" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 text-sm text-slate-400 hover:text-[#E1306C] transition-colors">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                                </svg>
+                                Instagram
+                            </a>
+                        </li>
+                        <li><div class="flex items-center gap-2.5 text-sm text-slate-400"><span class="iconify text-brand-500 text-lg" data-icon="mdi:map-marker-outline"></span> Ribeirão Preto - SP e Região</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-slate-500">© 2025 Lava Seco Zona Norte. Todos os direitos reservados.</p>
+                <a href="tel:+5516982627162" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-full transition-colors"><span class="iconify text-brand-400 text-sm" data-icon="mdi:phone"></span><span class="text-xs font-bold text-white">(16) 98262-7162</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/5516982627162?text=Olá! Vim pelo site e gostaria de um orçamento." target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp"><span class="iconify text-white text-3xl" data-icon="mdi:whatsapp"></span></a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // === NAVBAR SCROLL ===
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('nav-scrolled', window.scrollY > 50);
+        });
+
+        // === REVEAL ON SCROLL ===
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // === BEFORE / AFTER SLIDER ===
+        document.querySelectorAll('[data-ba]').forEach(container => {
+            const beforeImg = container.querySelector('.ba-before');
+            const divider = container.querySelector('.ba-divider');
+            const handle = container.querySelector('.ba-handle');
+            let isDragging = false;
+
+            function updatePosition(x) {
+                const rect = container.getBoundingClientRect();
+                let percent = ((x - rect.left) / rect.width) * 100;
+                percent = Math.max(2, Math.min(98, percent));
+                beforeImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+                divider.style.left = percent + '%';
+                handle.style.left = percent + '%';
+            }
+
+            container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                updatePosition(e.clientX);
+                e.preventDefault();
+            });
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                updatePosition(e.clientX);
+            });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+
+            container.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                updatePosition(e.touches[0].clientX);
+                e.preventDefault();
+            }, { passive: false });
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                updatePosition(e.touches[0].clientX);
+            });
+            window.addEventListener('touchend', () => { isDragging = false; });
+        });
+
+        // === ANIMATED COUNTERS ===
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                if (el.dataset.counted) return;
+                el.dataset.counted = 'true';
+
+                const target = parseFloat(el.dataset.count);
+                const suffix = el.textContent.replace(/[0-9.,]/g, '');
+                const isDecimal = target % 1 !== 0;
+                const duration = 2000;
+                const startTime = performance.now();
+
+                function animate(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = target * eased;
+
+                    if (isDecimal) {
+                        el.textContent = current.toFixed(1) + suffix;
+                    } else {
+                        el.textContent = Math.floor(current) + suffix;
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        if (isDecimal) {
+                            el.textContent = target.toFixed(1) + suffix;
+                        } else {
+                            el.textContent = target + suffix;
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+    </script>
+</body>
+</html>
